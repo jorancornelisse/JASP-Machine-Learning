@@ -17,7 +17,7 @@
 
 MLClusteringDensityBased <- function(jaspResults, dataset, options, ...) {
   
-  #install.packages("dbscan", repos="https://cloud.r-project.org")
+  install.packages("dbscan", repos="https://cloud.r-project.org")
   #install.packages("dbscan", repos="https://cloud.r-project.org")
 
   # read variables ##

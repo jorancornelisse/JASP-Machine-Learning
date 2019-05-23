@@ -41,7 +41,7 @@ GroupBox {
       CheckBox { text: qsTr("Between sum of squares") ; name: "tableClusterInfoBetweenSumSquares" ; checked: false}
       CheckBox { text: qsTr("Total sum of squares") ; name: "tableClusterInfoTotalSumSquares" ; checked: false}
   }
-  CheckBox { text: qsTr("AIC/BIC weights") ; name: "aicweights"; debug: true}
+  CheckBox { text: qsTr("AIC/BIC weights") ; name: "aicweights"}
 }
 
 GroupBox {
@@ -78,7 +78,6 @@ GroupBox {
 
 Section {
   text: qsTr("Predictions")
-  debug: true
 
       RadioButtonGroup
       {

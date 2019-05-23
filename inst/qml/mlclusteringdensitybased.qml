@@ -65,7 +65,6 @@ GroupBox {
 
 Section {
   text: qsTr("Predictions")
-  debug: true
 
       RadioButtonGroup
       {

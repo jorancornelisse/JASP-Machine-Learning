@@ -11,15 +11,8 @@
 		"icon": 								"analysis-ml-clustering.svg"
 	},
 
-	// "requiredPackages":	[
-	// 	{ "package" : "kknn" },
-	// 	{ "package" : "Rtsne" },
-	// 	{ "package" : "colorspace" },
-	// 	{ "package" : "ppclust" },
-	//	{ "package" : "gbm" }
-	// ],
-	"requiredPackages":	[ ],
-
+   "requiredPackages":	[ "kknn",  "Rtsne", "colorspace", "ppclust", "gbm", "dbscan", "NbClust" ],
+	
 	"menu":
 		[
 			{
