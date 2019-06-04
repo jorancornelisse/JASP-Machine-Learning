@@ -60,6 +60,7 @@ Section {
         name: "modelOpt"
         RadioButton { text: qsTr("AIC")                             ; name: "validationAIC" }
         RadioButton { text: qsTr("BIC")                             ; name: "validationBIC" ; checked: true }
+        RadioButton { text: qsTr("Silhouette")                      ; name: "validationSilh" }
         RadioButton { text: qsTr("Manual")                          ; name: "validationManual"; id: validationManual }
     }
 

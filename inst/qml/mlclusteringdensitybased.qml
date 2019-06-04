@@ -39,6 +39,12 @@ GroupBox {
 }
 }
 
+GroupBox {
+    title: qsTr("Plots")
+    CheckBox { text: qsTr("Cluster plot")       ; name: "plot2dCluster" ; checked: false; enabled: true}
+    CheckBox { text: qsTr("K-dist plot")         ; name: "k-distplot"    ; checked: false; enabled: true}
+}
+
 Section {
     title: qsTr("Training parameters")
 
@@ -51,10 +57,14 @@ Section {
     }
 
 GroupBox {
-    IntegerField { name: "eps"; text: qsTr("eps:") ; defaultValue: 1 ; min: -1; max: 999999; fieldWidth: 60; enabled: validationManual.checked }
-    IntegerField { name: "maxClusters"; text: qsTr("Max. clusters:") ; defaultValue: 10 ; min: 1; max: 999999; fieldWidth: 60; enabled: validationManual.checked ? false : true }
+    IntegerField { name: "eps"; text: qsTr("eps:") ; defaultValue: 2 ; min: -1; max: 999999; fieldWidth: 60; enabled: validationManual.checked }
     IntegerField { name: "minPts"; text: qsTr("minPts:") ; defaultValue: 5 ; min: 1; max: 999999; fieldWidth: 60 }
-
+    ComboBox { name: "distance"; label: qsTr("Distance metric:");
+        model: ListModel {
+            ListElement { key: "Normal densities"            ; value: "Normal densities" }
+            ListElement { key: "Correlated densities"                    ; value: "Correlated densities" }
+        }
+    }
     CheckBox { text: qsTr("Scale variables") ; name: "scaleEqualSD"; checked: true}
     CheckBox { name: "seedBox"; text: qsTr("Set seed:"); childrenOnSameRow: true
         DoubleField  { name: "seed"; defaultValue: 1; min: -999999; max: 999999; fieldWidth: 60 }

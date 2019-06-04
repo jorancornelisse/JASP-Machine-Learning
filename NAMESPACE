@@ -9,6 +9,7 @@ export(MLClassificationRandomForest)
 export(MLClusteringDensityBased)
 export(MLFuzzyCMeans)
 export(MLClusteringKMeans)
+export(MLClusteringHier)
   import('kknn');
   import('Rtsne');
   import('colorspace');
@@ -16,3 +17,4 @@ export(MLClusteringKMeans)
   import('gbm');
   import('dbscan');
   import('NbClust');
+  import('factoextra');

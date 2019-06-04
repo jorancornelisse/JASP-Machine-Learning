@@ -11,7 +11,7 @@
 		"icon": 								"analysis-ml-clustering.svg"
 	},
 
-   "requiredPackages":	[ "kknn",  "Rtsne", "colorspace", "ppclust", "gbm", "dbscan", "NbClust" ],
+   "requiredPackages":	[ "kknn",  "Rtsne", "colorspace", "ppclust", "gbm", "dbscan", "NbClust", "factoextra" ],
 	
 	"menu":
 		[
@@ -81,6 +81,11 @@
 				"title":							"K-Means",
 				"qml":								"mlclusteringkmeans.qml",
 				"function":							"MLClusteringKMeans"
+			},
+			{
+				"title":							"Hierarchical clustering",
+				"qml":								"mlclusteringhier.qml",
+				"function":							"MLClusteringHier"
 			}
 		]
 }

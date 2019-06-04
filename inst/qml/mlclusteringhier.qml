@@ -37,18 +37,13 @@ Form {
         title: qsTr("Tables")
 
         CheckBox { text: qsTr("Cluster information") ; name: "tableClusterInformation" ; enabled: true ; id: clusterInfo; checked: true
-          CheckBox { text: qsTr("Centroids") ; name: "tableClusterInfoCentroids" ; checked: false}
-          CheckBox { text: qsTr("Between sum of squares") ; name: "tableClusterInfoBetweenSumSquares" ; checked: false}
-          CheckBox { text: qsTr("Total sum of squares") ; name: "tableClusterInfoTotalSumSquares" ; checked: false}
-      }
-      CheckBox { text: qsTr("AIC/BIC weights") ; name: "aicweights"}
+          }
     }
 
     GroupBox {
         title: qsTr("Plots")
-
         CheckBox { text: qsTr("Cluster plot")       ; name: "plot2dCluster" ; checked: false; enabled: true}
-        CheckBox { text: qsTr("Within sum of squares")  ; name: "withinssPlot" ; checked: false; enabled: validationManual.checked ? false : true}
+        CheckBox { text: qsTr("Dendrogram")         ; name: "dendrogram"    ; checked: false; enabled: true}
     }
 
     Section {
@@ -58,28 +53,31 @@ Form {
           RadioButtonGroup {
               title: qsTr("Model optimization")
               name: "modelOpt"
-              RadioButton { text: qsTr("AIC")                             ; name: "validationAIC" }
-              RadioButton { text: qsTr("BIC")                             ; name: "validationBIC" ; checked: true }
-              RadioButton { text: qsTr("Silhouette")                      ; name: "validationSilh" }
               RadioButton { text: qsTr("Manual")                          ; name: "validationManual"; id: validationManual }
+              RadioButton { text: qsTr("Gap")                             ; name: "gap"   ; id: gap }
+              RadioButton { text: qsTr("Silhouette")                      ; name: "silhouette"  ; id: silhouette }
           }
 
           GroupBox {
               IntegerField { name: "noOfClusters"; text: qsTr("Clusters:") ; defaultValue: 3 ; min: 1; max: 999999; fieldWidth: 60; enabled: validationManual.checked }
               IntegerField { name: "maxClusters"; text: qsTr("Max. clusters:") ; defaultValue: 10 ; min: 1; max: 999999; fieldWidth: 60; enabled: validationManual.checked ? false : true }
-              IntegerField { name: "noOfIterations"; text: qsTr("Iterations:") ; defaultValue: 25 ; min: 1; max: 999999; fieldWidth: 60 }
-              IntegerField { name: "noOfRandomSets"; text: qsTr("Random sets:") ; defaultValue: 25 ; min: 1; max: 999999; fieldWidth: 60 }
-              ComboBox { name: "algorithm"; label: qsTr("Algorithm:");
-                  model: ListModel {
-                      ListElement { key: "Hartigan-Wong"            ; value: "Hartigan-Wong" }
-                      ListElement { key: "Lloyd"                    ; value: "Lloyd" }
-                      ListElement { key: "Forgy"                    ; value: "Forgy" }
-                      ListElement { key: "MacQueen"                 ; value: "MacQueen" }
-                  }
-              }
               CheckBox { text: qsTr("Scale variables") ; name: "scaleEqualSD"; checked: true}
               CheckBox { name: "seedBox"; text: qsTr("Set seed:"); childrenOnSameRow: true
                   DoubleField  { name: "seed"; defaultValue: 1; min: -999999; max: 999999; fieldWidth: 60 }
+              }
+              ComboBox { name: "distance"; label: qsTr("Distance metric:");
+                  model: ListModel {
+                      ListElement { key: "Euclidean"            ; value: "Euclidean" }
+                      ListElement { key: "Pearson correlation"                    ; value: "Pearson correlation" }
+                  }
+              }
+              ComboBox { name: "linkage"; label: qsTr("Linkage:");
+                  model: ListModel {
+                      ListElement { key: "average"                    ; value: "average" }
+                      ListElement { key: "single"                     ; value: "single" }
+                      ListElement { key: "complete"                   ; value: "complete" }
+                      ListElement { key: "centroid"                   ; value: "centroid" }
+                  }
               }
           }
         }
